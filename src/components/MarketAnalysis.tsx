@@ -3,81 +3,81 @@
 import { motion } from "framer-motion";
 import { useLang } from "@/lib/i18n";
 
-/* Province-level VEDAŞ data (EPDK 2024) */
+/* Wood panel market regions / production */
 const vedasProvincesTR = [
-  { province: "Hakkari", loss: 52.16, subscribers: "85K", color: "#ef4444", note: "Türkiye'nin en yüksek kayıp oranlarından" },
-  { province: "Van", loss: 29.43, subscribers: "420K", color: "#f59e0b", note: "En büyük abone havuzu" },
-  { province: "Muş", loss: 25.09, subscribers: "165K", color: "#eab308", note: "Hedefin altında" },
-  { province: "Bitlis", loss: 24.03, subscribers: "170K", color: "#22c55e", note: "En düşük oran" },
+  { province: "Antalya (Ana Fabrika)", loss: 35, subscribers: "1.5M m\u00B3/y\u0131l", color: "#22c55e", note: "T\u00FCrkiye'nin en b\u00FCy\u00FCk entegre tesisi" },
+  { province: "\u0130\u00E7 Pazar", loss: 35, subscribers: "%35+", color: "#3b82f6", note: "Yurt i\u00E7i lider" },
+  { province: "Avrupa \u0130hracat", loss: 28, subscribers: "40+ \u00FClke", color: "#f59e0b", note: "AB standartlar\u0131nda \u00FCretim" },
+  { province: "Ortado\u011Fu & Afrika", loss: 20, subscribers: "30+ \u00FClke", color: "#a855f7", note: "B\u00FCy\u00FCyen ihracat pazar\u0131" },
 ];
 
 const vedasProvincesEN = [
-  { province: "Hakkari", loss: 52.16, subscribers: "85K", color: "#ef4444", note: "One of Turkey's highest loss rates" },
-  { province: "Van", loss: 29.43, subscribers: "420K", color: "#f59e0b", note: "Largest subscriber pool" },
-  { province: "Muş", loss: 25.09, subscribers: "165K", color: "#eab308", note: "Below target" },
-  { province: "Bitlis", loss: 24.03, subscribers: "170K", color: "#22c55e", note: "Lowest rate" },
+  { province: "Antalya (Main Plant)", loss: 35, subscribers: "1.5M m\u00B3/yr", color: "#22c55e", note: "Turkey's largest integrated facility" },
+  { province: "Domestic Market", loss: 35, subscribers: "35%+", color: "#3b82f6", note: "Domestic leader" },
+  { province: "Europe Exports", loss: 28, subscribers: "40+ countries", color: "#f59e0b", note: "EU-standard production" },
+  { province: "Middle East & Africa", loss: 20, subscribers: "30+ countries", color: "#a855f7", note: "Growing export market" },
 ];
 
-/* Competitor positioning */
+/* Competitor positioning — Turkish wood panel manufacturers */
 const competitorsTR = [
-  { name: "Türker Yenilenebilir", current: 527, target: 3953, revenue: "4.2B TL", growth: "7.5x", highlight: true },
-  { name: "Akfen Yenilenebilir", current: 828, target: 1200, revenue: "Halka arz", growth: "1.4x", highlight: false },
-  { name: "Zorlu Yenilenebilir", current: 650, target: 1000, revenue: "Halka arz", growth: "1.5x", highlight: false },
-  { name: "IC Enterra", current: 350, target: 600, revenue: "Halka arz", growth: "1.7x", highlight: false },
+  { name: "AGT A\u011Fa\u00E7 Sanayi", current: "1.5M m\u00B3/y\u0131l", target: "80+ \u00FClke", revenue: "12B TL", growth: "%35+", highlight: true },
+  { name: "Kastamonu Entegre", current: "1.2M m\u00B3/y\u0131l", target: "70+ \u00FClke", revenue: "Hayat Holding", growth: "%30", highlight: false },
+  { name: "Y\u0131ld\u0131z Entegre", current: "800K m\u00B3/y\u0131l", target: "50+ \u00FClke", revenue: "Karacasu tesisi", growth: "%18", highlight: false },
+  { name: "\u00C7amsan Entegre", current: "500K m\u00B3/y\u0131l", target: "30+ \u00FClke", revenue: "Trabzon \u00FCretimi", growth: "%10", highlight: false },
 ];
 
 const competitorsEN = [
-  { name: "Türker Renewable", current: 527, target: 3953, revenue: "4.2B TL", growth: "7.5x", highlight: true },
-  { name: "Akfen Renewable", current: 828, target: 1200, revenue: "IPO", growth: "1.4x", highlight: false },
-  { name: "Zorlu Renewable", current: 650, target: 1000, revenue: "IPO", growth: "1.5x", highlight: false },
-  { name: "IC Enterra", current: 350, target: 600, revenue: "IPO", growth: "1.7x", highlight: false },
+  { name: "AGT Agac Sanayi", current: "1.5M m\u00B3/yr", target: "80+ countries", revenue: "12B TL", growth: "35%+", highlight: true },
+  { name: "Kastamonu Entegre", current: "1.2M m\u00B3/yr", target: "70+ countries", revenue: "Hayat Holding", growth: "30%", highlight: false },
+  { name: "Yildiz Entegre", current: "800K m\u00B3/yr", target: "50+ countries", revenue: "Karacasu plant", growth: "18%", highlight: false },
+  { name: "Camsan Entegre", current: "500K m\u00B3/yr", target: "30+ countries", revenue: "Trabzon production", growth: "10%", highlight: false },
 ];
 
-/* Global AI benchmarks */
+/* Wood panel manufacturing AI benchmarks */
 const aiBenchmarksTR = [
-  { metric: "Plansız Duruş Azalma", value: "%35-50", source: "Deloitte / IRENA", detail: "AI prediktif bakım uygulayan santrallerde" },
-  { metric: "Bakım Maliyeti Azalma", value: "%18-25", source: "McKinsey Energy", detail: "Arızalar büyümeden tespit edildiğinde" },
-  { metric: "Enerji Üretim Artışı", value: "%8.5", source: "IEEE 2024", detail: "AI optimizasyonlu rüzgâr çiftliklerinde" },
-  { metric: "Tolerasyondan Sonra", value: "%98+", source: "GE/Siemens Veri", detail: "AI-destekli santrallerde availability" },
-  { metric: "Pazar Büyüklüğü", value: "$5.12B", source: "Dataintelo 2033", detail: "Rüzgâr AI bakım pazarı (CAGR %17.2)" },
-  { metric: "ROI Oranı", value: "1:11", source: "Sanayi Raporu", detail: "Proaktif vs reaktif bakım getirisi" },
+  { metric: "\u00DCretim Hata Azalma", value: "%35-50", source: "Deloitte Manufacturing", detail: "AI g\u00F6r\u00FCnt\u00FC analizi ile y\u00FCzey kalite kontrol" },
+  { metric: "Hammadde Optimizasyonu", value: "%12-18", source: "McKinsey Forest Products", detail: "AI ile odun kar\u0131\u015F\u0131m optimizasyonu" },
+  { metric: "Enerji Verimlili\u011Fi", value: "%15-25", source: "IEEE Industrial 2024", detail: "Presleme ve kurutma s\u00FCre\u00E7lerinde AI" },
+  { metric: "Tedarik Zinciri", value: "%20-30", source: "Gartner Supply Chain", detail: "Stok ve lojistik tahminleme" },
+  { metric: "Pazar B\u00FCy\u00FCkl\u00FC\u011F\u00FC", value: "$180B", source: "Grand View Research", detail: "Global ah\u015Fap panel pazar\u0131 2030" },
+  { metric: "Dijital D\u00F6n\u00FC\u015F\u00FCm", value: "$12B", source: "Industry 4.0 Report", detail: "Ah\u015Fap sekt\u00F6r\u00FCnde dijitalle\u015Fme yat\u0131r\u0131m\u0131" },
 ];
 
 const aiBenchmarksEN = [
-  { metric: "Unplanned Downtime Reduction", value: "35-50%", source: "Deloitte / IRENA", detail: "In plants using AI predictive maintenance" },
-  { metric: "Maintenance Cost Reduction", value: "18-25%", source: "McKinsey Energy", detail: "When faults are detected before escalation" },
-  { metric: "Energy Production Increase", value: "8.5%", source: "IEEE 2024", detail: "In AI-optimized wind farms" },
-  { metric: "Post-Tolerance Availability", value: "98%+", source: "GE/Siemens Data", detail: "In AI-powered plants" },
-  { metric: "Market Size", value: "$5.12B", source: "Dataintelo 2033", detail: "Wind AI maintenance market (CAGR 17.2%)" },
-  { metric: "ROI Ratio", value: "1:11", source: "Industry Report", detail: "Proactive vs reactive maintenance return" },
+  { metric: "Production Defect Reduction", value: "35-50%", source: "Deloitte Manufacturing", detail: "AI image analysis for surface quality control" },
+  { metric: "Raw Material Optimization", value: "12-18%", source: "McKinsey Forest Products", detail: "AI-powered wood mix optimization" },
+  { metric: "Energy Efficiency", value: "15-25%", source: "IEEE Industrial 2024", detail: "AI in pressing and drying processes" },
+  { metric: "Supply Chain", value: "20-30%", source: "Gartner Supply Chain", detail: "Inventory and logistics forecasting" },
+  { metric: "Market Size", value: "$180B", source: "Grand View Research", detail: "Global wood panel market 2030" },
+  { metric: "Digital Transformation", value: "$12B", source: "Industry 4.0 Report", detail: "Digitalization investment in wood sector" },
 ];
 
-/* Financial highlights */
+/* AGT Financial highlights (public company) */
 const financialsTR = [
-  { year: "2023", revenue: "2.4", grossProfit: "1.4", margin: "58.3", unit: "milyar TL" },
-  { year: "2024", revenue: "4.2", grossProfit: "2.0", margin: "47.6", unit: "milyar TL" },
-  { year: "9A 2025", revenue: "2.8", grossProfit: "1.6", margin: "57.1", unit: "milyar TL" },
+  { year: "2022", revenue: "8.5", grossProfit: "2.8", margin: "33", unit: "milyar TL" },
+  { year: "2023", revenue: "12", grossProfit: "4.2", margin: "35", unit: "milyar TL" },
+  { year: "2024T", revenue: "15", grossProfit: "5.7", margin: "38", unit: "milyar TL" },
 ];
 
 const financialsEN = [
-  { year: "2023", revenue: "2.4", grossProfit: "1.4", margin: "58.3", unit: "B TL" },
-  { year: "2024", revenue: "4.2", grossProfit: "2.0", margin: "47.6", unit: "B TL" },
-  { year: "9M 2025", revenue: "2.8", grossProfit: "1.6", margin: "57.1", unit: "B TL" },
+  { year: "2022", revenue: "8.5", grossProfit: "2.8", margin: "33", unit: "B TL" },
+  { year: "2023", revenue: "12", grossProfit: "4.2", margin: "35", unit: "B TL" },
+  { year: "2024E", revenue: "15", grossProfit: "5.7", margin: "38", unit: "B TL" },
 ];
 
 /* Financial summary cards */
 const financialSummaryTR = [
-  { label: "Toplam Yatırım", value: "$1.04 milyar", sub: "526.7 MWe portföy" },
-  { label: "Halka Arz", value: "250M pay", sub: "Yıldız Pazar, %20.57" },
-  { label: "YoY Büyüme", value: "+75%", sub: "2023 → 2024 hasılat" },
-  { label: "Fon Kullanımı", value: "%85 yatırım", sub: "Yeni projelere direkt" },
+  { label: "\u00DCretim Kapasitesi", value: "1.5M m\u00B3/y\u0131l", sub: "MDF + Laminat + Melamin" },
+  { label: "\u0130hracat", value: "80+ \u00FClke", sub: "5 k\u0131tada m\u00FC\u015Fteri a\u011F\u0131" },
+  { label: "YoY B\u00FCy\u00FCme", value: "+25%", sub: "2023 \u2192 2024 has\u0131lat" },
+  { label: "BIST AGT", value: "Y\u0131ld\u0131z Pazar", sub: "Borsa \u0130stanbul" },
 ];
 
 const financialSummaryEN = [
-  { label: "Total Investment", value: "$1.04B", sub: "526.7 MWe portfolio" },
-  { label: "IPO", value: "250M shares", sub: "Star Market, 20.57%" },
-  { label: "YoY Growth", value: "+75%", sub: "2023 → 2024 revenue" },
-  { label: "Fund Usage", value: "85% investment", sub: "Direct to new projects" },
+  { label: "Production Capacity", value: "1.5M m\u00B3/yr", sub: "MDF + Laminate + Melamine" },
+  { label: "Exports", value: "80+ countries", sub: "Customer network on 5 continents" },
+  { label: "YoY Growth", value: "+25%", sub: "2023 \u2192 2024 revenue" },
+  { label: "BIST AGT", value: "Star Market", sub: "Borsa Istanbul" },
 ];
 
 export default function MarketAnalysis() {
@@ -89,9 +89,9 @@ export default function MarketAnalysis() {
   const financials = lang === "tr" ? financialsTR : financialsEN;
   const financialSummary = lang === "tr" ? financialSummaryTR : financialSummaryEN;
 
-  const subscriberLabel = lang === "tr" ? "abone" : "subscribers";
+  const subscriberLabel = lang === "tr" ? "kapasite" : "capacity";
   const focusLabel = lang === "tr" ? "Odak" : "Focus";
-  const vedasSubtitle = lang === "tr" ? "2013: %70+ → 2024: %28 ortalama" : "2013: 70%+ → 2024: 28% average";
+  const vedasSubtitle = lang === "tr" ? "T\u00FCrkiye ah\u015Fap panel pazar\u0131 2025" : "Turkey wood panel market 2025";
 
   return (
     <section id="market" className="py-24 px-4 relative">
@@ -170,7 +170,7 @@ export default function MarketAnalysis() {
           </div>
         </motion.div>
 
-        {/* ───── VEDAŞ PROVINCE-LEVEL ANALYSIS ───── */}
+        {/* ───── MARKET REGIONS / PRODUCTION ───── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -196,7 +196,7 @@ export default function MarketAnalysis() {
               >
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-semibold text-sm">{p.province}</span>
-                  <span className="text-xs text-foreground/25">{p.subscribers} {subscriberLabel}</span>
+                  <span className="text-xs text-foreground/25">{p.subscribers}</span>
                 </div>
                 <div className="mb-2">
                   <div className="text-2xl font-bold" style={{ color: p.color }}>
@@ -222,9 +222,7 @@ export default function MarketAnalysis() {
           <div className="p-4 rounded-lg bg-yellow-500/5 border border-yellow-500/10">
             <div className="text-[10px] font-mono text-yellow-500/50 mb-1.5">{t.market.aiFocusHakkari}</div>
             <p className="text-xs text-foreground/40 leading-relaxed">
-              {t.market.hakkariText.split("~100")[0]}
-              <strong className="text-yellow-400">~100 {lang === "tr" ? "milyon kWh" : "million kWh"}</strong>
-              {t.market.hakkariText.split(lang === "tr" ? "~100 milyon kWh" : "~100 million kWh")[1]}
+              {t.market.hakkariText}
             </p>
           </div>
         </motion.div>
@@ -264,9 +262,9 @@ export default function MarketAnalysis() {
                       {c.name}
                       {c.highlight && <span className="ml-1.5 text-[8px] px-1.5 py-0.5 rounded bg-primary/10 text-primary">{focusLabel}</span>}
                     </td>
-                    <td className="text-right py-2.5 text-foreground/50">{c.current.toLocaleString()}</td>
+                    <td className="text-right py-2.5 text-foreground/50">{c.current}</td>
                     <td className="text-right py-2.5 font-medium" style={{ color: c.highlight ? "#10b981" : undefined }}>
-                      {c.target.toLocaleString()}
+                      {c.target}
                     </td>
                     <td className="text-right py-2.5">
                       <span className={`px-1.5 py-0.5 rounded text-[10px] ${
@@ -285,9 +283,9 @@ export default function MarketAnalysis() {
           <div className="mt-4 p-3 rounded-lg bg-primary/3 border border-primary/10">
             <p className="text-[10px] text-foreground/35 leading-relaxed">
               <strong className="text-primary/70">
-                {lang === "tr" ? "Kritik farklılaşma:" : "Critical differentiation:"}
+                {lang === "tr" ? "Kritik farkl\u0131la\u015Fma:" : "Critical differentiation:"}
               </strong>{" "}
-              {t.market.competitorNote.split(lang === "tr" ? "Kritik farklılaşma: " : "Critical differentiation: ")[1] || t.market.competitorNote}
+              {t.market.competitorNote.split(lang === "tr" ? "Kritik farkl\u0131la\u015Fma: " : "Critical differentiation: ")[1] || t.market.competitorNote}
             </p>
           </div>
         </motion.div>
@@ -327,23 +325,7 @@ export default function MarketAnalysis() {
           <div className="mt-5 p-4 rounded-lg bg-accent/5 border border-accent/10">
             <div className="text-[10px] font-mono text-accent/50 mb-1.5">{t.market.projectionTitle}</div>
             <p className="text-xs text-foreground/40 leading-relaxed">
-              {lang === "tr" ? (
-                <>
-                  527 MW portföyde global benchmarkların alt sınırı uygulandığında bile:
-                  plansız duruşta %35 azalma ≈ yıllık <strong className="text-accent">~45 GWh</strong> ek üretim,
-                  bakım maliyetinde %18 azalma, üretim optimizasyonuyla %3 artış ≈ <strong className="text-accent">~47 GWh</strong>.
-                  Toplam etki: yıllık <strong className="text-accent">~92 GWh</strong> ek üretim + maliyet tasarrufu.
-                  3,953 MW hedefinde bu rakamlar <strong className="text-accent">7.5 katına</strong> çıkar.
-                </>
-              ) : (
-                <>
-                  Even applying the lower bound of global benchmarks to a 527 MW portfolio:
-                  35% reduction in unplanned downtime ≈ <strong className="text-accent">~45 GWh</strong> additional annual production,
-                  18% reduction in maintenance costs, 3% increase through production optimization ≈ <strong className="text-accent">~47 GWh</strong>.
-                  Total impact: <strong className="text-accent">~92 GWh</strong> additional annual production + cost savings.
-                  At the 3,953 MW target, these figures increase <strong className="text-accent">7.5x</strong>.
-                </>
-              )}
+              {t.market.projectionText}
             </p>
           </div>
         </motion.div>

@@ -185,7 +185,7 @@ const dict = {
         ecommerce: { title: "E-Commerce Frontend", desc: "Tam kapsamlı e-ticaret platformu. Ürün katalog, sepet yönetimi, ödeme entegrasyonu." },
         "ecommerce-backendAPI": { title: "E-Commerce Backend API", desc: "Spring Boot tabanlı e-ticaret API. Ürün yönetimi, stok takibi, sipariş işlemleri." },
         "web-sayfam": { title: "Portföy Web Sitesi", desc: "Next.js 16 + TypeScript + Framer Motion ile kişisel portföy sitesi." },
-        "turkerler-portfolio": { title: "Türkerler Enerji Portfolyosu", desc: "Türkerler Holding için AI tabanlı enerji yönetim vizyonu. Canlı dashboard prototipi." },
+        "agt-portfolio": { title: "AGT Ağaç Sanayi Portfolyosu", desc: "AGT Ağaç Sanayi için dijital dönüşüm vizyonu. Üretim dashboardı prototipi." },
       },
       achievements: [
         { title: "Multi-Tenant SaaS Platform", desc: "8+ marka ve 10+ şubeyi tek panelden yöneten restoran sistemi. React/Vite frontend, Express.js backend, PostgreSQL veritabanı.", metric: "176+ API endpoint" },
@@ -408,7 +408,7 @@ const dict = {
         ecommerce: { title: "E-Commerce Frontend", desc: "Full-scope e-commerce platform. Product catalog, cart, payments." },
         "ecommerce-backendAPI": { title: "E-Commerce Backend API", desc: "Spring Boot e-commerce API. Product management, inventory, order processing." },
         "web-sayfam": { title: "Portfolio Website", desc: "Personal portfolio with Next.js 16 + TypeScript + Framer Motion." },
-        "turkerler-portfolio": { title: "Turkerler Energy Portfolio", desc: "AI-powered energy management vision for Turkerler Holding. Live dashboard prototype." },
+        "agt-portfolio": { title: "AGT Agac Sanayi Portfolio", desc: "Digital transformation vision for AGT Agac Sanayi. Production dashboard prototype." },
       },
       achievements: [
         { title: "Multi-Tenant SaaS Platform", desc: "Restaurant system managing 8+ brands and 10+ branches from a single panel. React/Vite frontend, Express.js backend, PostgreSQL.", metric: "176+ API endpoints" },

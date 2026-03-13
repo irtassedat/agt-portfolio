@@ -1,22 +1,22 @@
-# Turkerler Energy - AI-Powered Portfolio
+# AGT Agac Sanayi - Digital Transformation Portfolio
 
-An interactive portfolio showcasing **Turkerler Holding**'s renewable energy operations and AI-driven energy management vision. Built with **Next.js 16**, **TypeScript**, and **Framer Motion**.
+An interactive portfolio showcasing **AGT Agac Sanayi**'s wood panel manufacturing operations and digital transformation vision. Built with **Next.js 16**, **TypeScript**, and **Framer Motion**.
 
-> **Live:** [turkerler-portfolio.vercel.app](https://turkerler-portfolio.vercel.app)
+> **Live:** [agt-portfolio.vercel.app](https://agt-portfolio.vercel.app)
 
 ---
 
 ## Features
 
 - **Animated Hero** - Canvas grid background with Framer Motion transitions
-- **Company Vision** - Turkerler Holding's renewable energy strategy and mission
-- **Energy Portfolio** - Operational plants: wind (120+ MW), hydro, geothermal across Turkey
-- **Market Analysis** - EPDK data, competitor positioning, financial insights
-- **Energy Architecture** - System diagrams for AI-powered energy optimization
-- **Live Demo** - Interactive energy management demonstration
+- **Company Vision** - AGT's 42-year manufacturing history and digital transformation strategy
+- **Product Portfolio** - Laminate flooring, decorative panels, MDF/HDF production lines
+- **Market Analysis** - Industry data, competitor positioning, financial insights
+- **Platform Architecture** - System diagrams for unified digital platform
+- **Live Demo** - Interactive production dashboard demonstration
 - **GitHub Integration** - Real-time project data from GitHub API
 - **Tech Stack Showcase** - Technologies powering the vision
-- **Contact Form** - Direct inquiry section
+- **Contact Section** - Direct inquiry section
 
 ## Tech Stack
 
@@ -39,14 +39,14 @@ src/
 │   └── page.tsx          # Main page composing all sections
 ├── components/
 │   ├── Hero.tsx           # Animated hero with canvas grid
-│   ├── TurkerlerVision.tsx # Company vision & mission
-│   ├── About.tsx          # Energy portfolio & plant data
-│   ├── MarketAnalysis.tsx # EPDK data & competitor analysis
+│   ├── TurkerlerVision.tsx # Company vision & product portfolio
+│   ├── About.tsx          # About me section
+│   ├── MarketAnalysis.tsx # Industry data & competitor analysis
 │   ├── EnergyArchitecture.tsx # AI system diagrams
-│   ├── LiveDemo.tsx       # Interactive demo section
+│   ├── LiveDemo.tsx       # Interactive production dashboard demo
 │   ├── GitHubProjects.tsx # GitHub API integration
 │   ├── TechStack.tsx      # Technology showcase
-│   ├── Contact.tsx        # Contact form
+│   ├── Contact.tsx        # Contact section
 │   ├── Navbar.tsx         # Navigation bar
 │   └── Footer.tsx         # Footer
 ```
@@ -54,8 +54,8 @@ src/
 ## Getting Started
 
 ```bash
-git clone https://github.com/irtassedat/turkerler-portfolio.git
-cd turkerler-portfolio
+git clone https://github.com/irtassedat/agt-portfolio.git
+cd agt-portfolio
 npm install
 npm run dev
 ```

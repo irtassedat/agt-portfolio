@@ -118,7 +118,7 @@ export default function Contact() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
-              href="https://github.com/irtassedat/turkerler-portfolio"
+              href="https://github.com/irtassedat/agt-portfolio"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-surface border border-border rounded-xl text-sm hover:border-primary/30 transition-colors"
